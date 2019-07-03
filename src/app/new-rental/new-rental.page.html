@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Rental</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    Enter the Information for Your New Rental
+    <p></p>
+    Name:
+    <br>
+    <input type="text" name="activity"> 
+    <p></p>
+    Location: 
+    <br>
+    <input type="text" name="activity">
+    <p></p>
+    Price: 
+    <br>
+    <input type="text" name="activity">
+    <p></p>
+    <ion-button (click)="navToNewRental()">Add New Rental</ion-button>
+  </div>
+</ion-content>
