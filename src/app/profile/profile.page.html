@@ -17,7 +17,7 @@
         <ion-card-title>{{listing.name}}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        This can be a description of the listing
+          {{listing.description}}
       </ion-card-content>
     </ion-card>
 
@@ -36,6 +36,10 @@
     Price:
     <br>
     <input type="text" name="price" [(ngModel)]="price">
+    <p></p>
+    Description:
+    <br>
+    <input type="text" name="description" [(ngModel)]="description">
     <p></p>
     <ion-button (click)="createRental()">Add New Rental</ion-button>
   </div>

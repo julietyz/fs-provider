@@ -10,14 +10,19 @@
   <div class="ion-padding">
     Create Your Provider Account 
     <p></p>
-    <input type="text" name="activity" placeholder="First Name">
+    <input type="text" name="activity" placeholder="First Name" [(ngModel)]="firstName">
     <p></p>
-    <input type="text" name="activity" placeholder="Last Name">
+    <input type="text" name="activity" placeholder="Last Name" [(ngModel)]="lastName">
     <p></p>
-    <input type="text" name="activity" placeholder="Enail">
+    <input type="text" name="activity" placeholder="Enail" [(ngModel)]="email">
     <p></p>
-    <input type="text" name="activity" placeholder="Phone Number">
+    <input type="text" name="activity" placeholder="Phone Number" [(ngModel)]="phone">
+    <p></p>
+    <ion-button (click)="createProvider()">Register</ion-button>
+    <p></p>
+    Already Have an Account? 
+    <p></p>
+    <ion-button (click)="navToLogin()">Login</ion-button>
   </div>
 
-  <ion-button (click)="navToLogin()">Register</ion-button>
 </ion-content>

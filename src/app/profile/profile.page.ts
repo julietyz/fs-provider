@@ -11,12 +11,13 @@ import { Listing } from '../models/listing';
 export class ProfilePage implements OnInit {
 
   listings: Array<Listing>;
-  listing1 = new Listing("Home in Cape Town", "Cape Town", 1500);
-  listing2 = new Listing("Apartment in Camps Bay", "Camps Bay", 4000);
+  listing1 = new Listing("Home in Cape Town", "Cape Town", 1500, "Quaint");
+  listing2 = new Listing("Apartment in Camps Bay", "Camps Bay", 4000, "Party");
 
   name: string;
   location: string;
   price: number;
+  description: string;
 
   constructor(
     private navCtrl: NavController
@@ -29,7 +30,7 @@ export class ProfilePage implements OnInit {
   }
   createRental() {
 
-    var newRental = new Listing(this.name, this.location, this.price);
+    var newRental = new Listing(this.name, this.location, this.price, this.description);
 
     this.listings.push(newRental);
   }
