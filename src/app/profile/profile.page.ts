@@ -13,8 +13,11 @@ export class ProfilePage implements OnInit {
   listings: Array<Listing>;
   listing1 = new Listing("Home in Cape Town", "Cape Town", 1500);
   listing2 = new Listing("Apartment in Camps Bay", "Camps Bay", 4000);
-  files : FileList; 
-  
+
+  name: string;
+  location: string;
+  price: number;
+
   constructor(
     private navCtrl: NavController
   ) {
@@ -24,16 +27,9 @@ export class ProfilePage implements OnInit {
   navToNewRental() {
     this.navCtrl.navigateForward("new-rental");
   }
-
-  getFiles(event) {
-    this.files = event.target.files;
-  }
   createRental() {
-    var nameInput = document.getElementById('name');
-    var loactionInput = document.getElementById('loaction');
-    var priceInput = document.getElementById('price');
 
-    var newRental = new Listing(nameInput, loactionInput, priceInput);
+    var newRental = new Listing(this.name, this.location, this.price);
 
     this.listings.push(newRental);
   }
