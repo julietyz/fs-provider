@@ -2,13 +2,13 @@ export class Provider {
     firstName: string;
     lastName: string;
     email: string;
-    phone: number;
+    password: string;
 
-    constructor(firstNameInput, lastNameInput, emailInput, phoneInput)
+    constructor(firstNameInput, lastNameInput, emailInput, passwordInput)
     {
         this.firstName = firstNameInput;
         this.lastName = lastNameInput;
         this.email = emailInput;
-        this.phone = phoneInput;
+        this.password = passwordInput;
     }
 }
