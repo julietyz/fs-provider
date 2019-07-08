@@ -8,21 +8,23 @@
 
 <ion-content>
   <div class="ion-padding" style="text-align: center">
-    Create Your Provider Account 
-    <p></p>
-    <input type="text" name="activity" placeholder="First Name" [(ngModel)]="firstName">
-    <p></p>
-    <input type="text" name="activity" placeholder="Last Name" [(ngModel)]="lastName">
-    <p></p>
-    <input type="text" name="activity" placeholder="Enail" [(ngModel)]="email">
-    <p></p>
-    <input type="text" name="activity" placeholder="Phone Number" [(ngModel)]="phone">
-    <p></p>
-    <ion-button (click)="createProvider()">Register</ion-button>
-    <p></p>
-    Already Have an Account? 
-    <p></p>
-    <ion-button (click)="navToLogin()">Login</ion-button>
+    <div class="genevaHome">
+        <h1> Create Your Provider Account </h1>
+        <p></p>
+        <input type="text" name="activity" placeholder="First Name" [(ngModel)]="firstName">
+        <p></p>
+        <input type="text" name="activity" placeholder="Last Name" [(ngModel)]="lastName">
+        <p></p>
+        <input type="text" name="activity" placeholder="Email" [(ngModel)]="email">
+        <p></p>
+        <input type="text" name="activity" placeholder="Phone Number" [(ngModel)]="phone">
+        <p></p>
+        <ion-button color="medium" (click)="createProvider()">Register</ion-button>
+        <p></p>
+        Already Have an Account? 
+        <p></p>
+        <ion-button color="medium" (click)="navToLogin()">Login</ion-button>
+    </div>
   </div>
 
 </ion-content>
