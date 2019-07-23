@@ -41,8 +41,9 @@ export class ProviderAuthService {
       this.httpClient
       .post("http://localhost:5000/api/providerauth/register", newProvider, {headers})
       .subscribe((response: any) => {
-          console.log(response.id);
-          localStorage.setItem('providerid', newProvider.id);
+          console.log(response);
+          console.log(response.insertId);
+          localStorage.setItem('providerid', String(response.insertId));
           resolve(response);
         },
 
