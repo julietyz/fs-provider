@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="profile"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--     <div align="center">
+        <ion-card *ngFor="let listing of listings">
+            <ion-slides pager="true">
+              <ion-slide *ngFor="let img of listing.imgUrl">
+                <img src={{img}} />
+              </ion-slide>
+            </ion-slides>
+            <ion-card-header>
+                <ion-card-subtitle>Price: {{listing.price}}R</ion-card-subtitle>
+              <ion-card-title>{{listing.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Location: {{listing.location}}
+              <br>
+              Description: {{listing.description}}
+              <p></p>
+            </ion-card-content>
+          </ion-card>
+    
+        </div> -->
+
+
+  <div class="ion-padding" *ngFor="let listing of listings">
+    What would you like to change?
+    <form #form="ngForm" (ngSubmit)="edit()">
+      <ion-grid>
+        <ion-row color="primary" justify-content-center>
+          <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+            <div padding>
+              Name: {{listing.name}}
+              <ion-item>
+                <ion-input name="name" type="text" placeholder="New Name" [(ngModel)]="name"></ion-input>
+              </ion-item>
+              <p></p>
+              Price: {{listing.price}}R
+              <ion-item>
+                <ion-input name="price" type="text" placeholder="New Price" [(ngModel)]="price"></ion-input>
+              </ion-item>
+              <p></p>
+              Location: {{listing.location}}
+              <ion-item>
+                <ion-input name="location" type="text" placeholder="New Location" [(ngModel)]="location"></ion-input>
+              </ion-item>
+              <p></p>
+              Description: {{listing.description}}
+              <ion-item>
+                <ion-input name="description" type="text" placeholder="New Description" [(ngModel)]="description">
+                </ion-input>
+              </ion-item>
+              <p></p>
+              Add New Image
+              <ion-item>
+                <ion-input name="img" type="text" placeholder="New Image URL" [(ngModel)]="img"></ion-input>
+              </ion-item>
+              <p></p>
+              <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Apply</ion-button>
+              <p></p>
+              Delete an Image By Clicking on it
+              <ion-card *ngFor="let img of listing.imgUrl" (click)="deleteImage(img)">
+                  <img src={{img}} />
+                </ion-card>
+            </div>
+            <div padding>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+
+  </div>
+
+</ion-content>

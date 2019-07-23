@@ -5,15 +5,26 @@
 </ion-header>
 
 <ion-content>
- <div class="genevaProfile">
-    <div class="ion-padding">
+ <div>
+    <div class="ion-padding" align="center">
     
-        <h1>Welcome Back, {{firstName}}</h1>
+      <div *ngFor="let provider of providers">
+          <h1>Welcome Back, {{provider.firstName}}</h1>
+          <p></p>
+          Email: {{provider.email}}
+      </div>
         <p></p>
         Your Rentals
+        <br>
+        <ion-button (click)="naveToNewRental()">Create New</ion-button>
+
         <p></p>
-    
-        <ion-card *ngFor="let listing of listings" class="genevaProfile">
+        <ion-card *ngFor="let listing of listingsBackend" (click)="navToPropDeets(listing)" class="genevaProfile">
+            <ion-slides pager="true">
+                <ion-slide *ngFor="let img of listing.imgUrl">
+                  <img src={{img}} />
+                </ion-slide>
+              </ion-slides>
           <ion-card-header>
             <ion-card-subtitle class="genevaSubtile">{{listing.location}}</ion-card-subtitle>
             <ion-card-title class="genevaProfile">{{listing.name}}</ion-card-title>
@@ -22,28 +33,7 @@
               {{listing.description}}
           </ion-card-content>
         </ion-card>
-    
-        <!-- <ion-button (click)="navToNewRental()">Add New Rental</ion-button> -->
-        <!-- <p></p> -->
-        Enter the Information for Your New Rental
-        <p></p>
-        Name:
-        <br>
-        <input type="text" name="name" [(ngModel)]="name">
-        <p></p>
-        Location:
-        <br>
-        <input type="text" name="location" [(ngModel)]="location">
-        <p></p>
-        Price:
-        <br>
-        <input type="text" name="price" [(ngModel)]="price">
-        <p></p>
-        Description:
-        <br>
-        <input type="text" name="description" [(ngModel)]="description">
-        <p></p>
-        <ion-button color="medium" (click)="createRental()">Add New Rental</ion-button>
+        
       </div>
  </div>
 </ion-content>

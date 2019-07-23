@@ -5,24 +5,40 @@
     </ion-buttons>
     <ion-title>New Rental</ion-title>
   </ion-toolbar>
+  <ion-button (click)="createURL(1, imageURLInput)">URL</ion-button>
 </ion-header>
 
 <ion-content>
   <div class="ion-padding">
     Enter the Information for Your New Rental
-    <p></p>
-    Name:
-    <br>
-    <input type="text" name="activity"> 
-    <p></p>
-    Location: 
-    <br>
-    <input type="text" name="activity">
-    <p></p>
-    Price: 
-    <br>
-    <input type="text" name="activity">
-    <p></p>
-    <ion-button (click)="navToNewRental()">Add New Rental</ion-button>
+    <form #form="ngForm" (ngSubmit)="createListing()">
+        <ion-grid>
+          <ion-row color="primary" justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+              <div padding>
+                <ion-item>
+                  <ion-input name="name" type="text" placeholder="Name" [(ngModel)]="name" ngModel required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input name="location" type="text" placeholder="Location" [(ngModel)]="location" ngModel required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input name="price" type="text" placeholder="Price" [(ngModel)]="price" ngModel required></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input name="description" type="text" placeholder="Description" [(ngModel)]="description" ngModel required></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input name="image" type="text" placeholder="Image URL" [(ngModel)]="imageURLInput" ngModel required></ion-input>
+                  </ion-item>
+              </div>
+              <div padding>
+                <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+
   </div>
 </ion-content>

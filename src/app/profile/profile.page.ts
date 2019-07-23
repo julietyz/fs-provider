@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
-import { Listing } from '../models/listing';
+import { ListingService } from '../services/listing.service';
+import { ProviderService } from '../services/provider.service';
+import { forEach } from '@angular/router/src/utils/collection';
+
 
 
 @Component({
@@ -10,35 +13,58 @@ import { Listing } from '../models/listing';
 })
 export class ProfilePage implements OnInit {
 
-  public firstName: string;
+  providers: any;
 
-  listings: Array<Listing>;
-  listing1 = new Listing("Home in Cape Town", "Cape Town", 1500, "Quaint");
-  listing2 = new Listing("Apartment in Camps Bay", "Camps Bay", 4000, "Party");
+  listingsBackend: any;
+  dummy: any;
 
-  name: string;
-  location: string;
-  price: number;
-  description: string;
+  id: string;
 
   constructor(
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private listingService: ListingService,
+    private providerService: ProviderService
   ) {
-    this.listings = [this.listing1, this.listing2];
-    this.firstName = window.localStorage.getItem('firstName');
+    this.id = window.localStorage.getItem('providerid');
+    this.listingsBackend = [];
+
   }
 
   navToNewRental() {
     this.navCtrl.navigateForward("new-rental");
   }
-  createRental() {
-
-    var newRental = new Listing(this.name, this.location, this.price, this.description);
-
-    this.listings.push(newRental);
-  }
 
   ngOnInit() {
+
+    this.providerService.getById(this.id).then(res => {
+      this.providers = res;
+      console.log(this.providers);
+    }).catch(err => { console.log(err) })
+
+    this.listingService.getByProviderId(this.id).then((res: any) => {
+      this.listingsBackend = res;
+      console.log(this.listingsBackend);
+      if (this.listingsBackend.length == 0) {
+        this.dummy = {
+          name: "None",
+          description: "Create a rental today!",
+          imgUrl: ""
+        }
+        this.listingsBackend.push(this.dummy);
+      }
+
+
+    }).catch(err => { console.log(err) })
+
+  }
+
+  naveToNewRental() {
+    this.navCtrl.navigateForward("new-rental");
+  }
+
+  navToPropDeets(listing) {
+    localStorage.setItem('listingid', listing.id);
+    this.navCtrl.navigateForward("prop-deets");
   }
 
 }

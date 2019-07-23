@@ -1,6 +1,6 @@
 input[type=text] {
-    background-color: white;
-    border: 4px solid #3CBC8D;
+    background-color: lightblue;
+    border: 4px;
     border-radius: 6px;
     font-weight: normal;
     padding: 12px 20px;
@@ -9,8 +9,8 @@ input[type=text] {
   }
 
   input[type=password]{
-    background-color: white;
-    border: 4px solid #3CBC8D;
+    background-color: lightblue;
+    border: 4px;
     border-radius: 6px;
     font-weight: normal;
     padding: 12px 20px;
@@ -19,6 +19,5 @@ input[type=text] {
   }
   .genevaLogin { 
     font-family: Geneva;
-    font-weight: bold;
-    color: #3CBC8D; 
+    font-weight: bold; 
   }

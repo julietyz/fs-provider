@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
-import { ProviderService } from '../services/provider.service';
+import { ProviderAuthService } from '../services/provider-auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,26 +15,39 @@ export class LoginPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private providerService: ProviderService,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private providerAuthService: ProviderAuthService
+
   ) { }
 
   navToProfile() {
     this.navCtrl.navigateForward("profile");
   }
+  navToHome() {
+    this.navCtrl.navigateForward("home");
+  }
   ngOnInit() {
   }
 
-  login() {
-    // let authUser = new User(this.eamil,this.password); -- I would do this (add user model)
+  loginBackend(){
     const authProvider = {
-      email: this.email,
+      email: this.email, 
       password: this.password
-    }
-    this.providerService.logIn(authProvider).then(provider => {
-      this.navCtrl.navigateForward('profile', provider);
-    }).catch(err => {
-      this.presentAlert(err);
+    };
+  
+      this.providerAuthService.login(authProvider).then(res=>{
+  
+        const testId = localStorage.getItem("providerid");
+        console.log(testId);
+  
+        this.navCtrl.navigateForward('profile', {
+          queryParams: {
+            provider: res
+          }
+        });
+  
+      }).catch(err => {
+        this.presentAlert(err);
     });
   }
 
