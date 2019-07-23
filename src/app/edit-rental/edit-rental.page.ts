@@ -125,12 +125,12 @@ export class EditRentalPage implements OnInit {
     });
   }
 
-  deleteImage(img){
-    console.log(img);
+  deleteImage(imgId){
+    console.log(imgId);
     console.log("delete");
 
-    this.listingImgMapService.deleteByImageURL(img).then(res=>{
-    }).catch(err => {console.log(err)})
+    /* this.listingImgMapService.deleteByImageURL(img).then(res=>{
+    }).catch(err => {console.log(err)}) */
 
     
   }
