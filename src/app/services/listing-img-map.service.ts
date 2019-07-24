@@ -56,12 +56,12 @@ export class ListingImgMapService {
     });
   }
 
-  deleteByImageURL(img){
+  deleteByListingIDAndURL(id, obj){
     return new Promise((resolve, reject) => {
       const headers = new HttpHeaders();
   
       this.httpClient
-      .post("http://localhost:5000/api/imgMap/deleteByImageURL/" + img, {headers})
+      .post("http://localhost:5000/api/imgMap/deleteByListingIDAndURL/" + id, obj, {headers})
       .subscribe((response: any) => {
           resolve(response);
         },

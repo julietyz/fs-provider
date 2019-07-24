@@ -66,7 +66,7 @@
               <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Apply</ion-button>
               <p></p>
               Delete an Image By Clicking on it
-              <ion-card *ngFor="let img of listing.imgUrl" (click)="deleteImage(img.id)">
+              <ion-card *ngFor="let img of listing.imgUrl" (click)="deleteImage(img)">
                   <img src={{img}} />
                 </ion-card>
             </div>
